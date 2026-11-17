@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buat kamu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg1: #2a0a1f;
+    --bg2: #12040e;
+    --heart: #ff3d71;
+    --heart-dark: #c9184a;
+    --glow: rgba(255, 61, 113, .55);
+    --paper: #fff4f7;
+    --ink: #5a0f2e;
+    --font: "Baloo 2", "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: var(--font);
+    background: radial-gradient(circle at 50% 40%, var(--bg1), var(--bg2) 70%);
+    color: var(--paper);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  /* ---------- Hati ---------- */
+  .heart-btn {
+    position: relative;
+    z-index: 2;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    width: min(60vw, 260px);
+    aspect-ratio: 1;
+    animation: beat 1.1s ease-in-out infinite;
+    filter: drop-shadow(0 0 28px var(--glow));
+    -webkit-tap-highlight-color: transparent;
+  }
+  .heart-btn svg { width: 100%; height: 100%; display: block; }
+  .heart-btn:focus-visible { outline: 3px solid var(--paper); outline-offset: 12px; border-radius: 50%; }
+  .heart-btn:hover { filter: drop-shadow(0 0 40px var(--heart)); }
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    14%      { transform: scale(1.14); }
+    28%      { transform: scale(1); }
+    42%      { transform: scale(1.1); }
+    70%      { transform: scale(1); }
+  }
